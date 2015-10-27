@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+@model CarpYeni.Models.ScoreSetting
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Set score settings</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Areas/Admin/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- MetisMenu CSS -->
+    <link href="~/Areas/Admin/Content/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="~/Areas/Admin/Content/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="~/Areas/Admin/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Enter new values</h3>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("SetScoreIntervals", "AdminHome"))
+                        {
+                            <fieldset>
+                                <div class="checkbox">
+                                    @if (ViewBag.ValidationStatus == "success")
+                                    {
+                                        <p class="alert alert-success">New values are set. You can close this window.</p> @Html.ActionLink("Back to control panel", "Index")
+                                    }
+                                    @if (ViewBag.ValidationStatus == "failure")
+                                    {
+                                        <p class="alert alert-danger">Invalid values. Values should go as: Gold > Silver > Copper > Wood</p>
+                                    }
+                                    @if (ViewBag.ValidationStatus == "error")
+                                    {
+                                        <p class="alert alert-danger">Cannot connect to database.</p>
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Wood")
+                                    @Html.TextBoxFor(p => p.Wood, new { @class = "form-control", @placeholder = "Wood", @type = "number", @autofocus = "autofocus", @required = "required" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Copper")
+                                    @Html.TextBoxFor(p => p.Copper, new { @class = "form-control", @placeholder = "Copper", @type = "number", @required = "required" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Silver")
+                                    @Html.TextBoxFor(p => p.Silver, new { @class = "form-control", @placeholder = "Silver", @type = "number", @required = "required" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Gold")
+                                    @Html.TextBoxFor(p => p.Gold, new { @class = "form-control", @placeholder = "Gold", @type = "number", @required = "required" })
+                                </div>
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Set values" />
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/Areas/Admin/Content/Scripts/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Areas/Admin/Content/Scripts/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Areas/Admin/Content/Scripts/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Areas/Admin/Content/Scripts/sb-admin-2.js"></script>
+
+</body>
+
+</html>
