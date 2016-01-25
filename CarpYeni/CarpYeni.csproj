@@ -258,6 +258,7 @@
     <Content Include="Areas\Admin\fonts\fontawesome-webfont.woff" />
     <Content Include="Areas\Admin\fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\AdminHome\ResetScores.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\ShowUnsolvedQuestions.cshtml" />
     <None Include="Properties\PublishProfiles\carpmaapi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\carpmaapi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />

@@ -11,12 +11,12 @@ namespace CarpYeni.Areas.Admin.Controllers
     {        
         public ActionResult Index()
         {
-            List<Question> allQuestions;
+            List<Question> solvedQuestions;
             using (var db = new CarpmaContext())
             {
-                allQuestions = db.Questions.Where(q => q.SolveDate != null).OrderByDescending(p => p.SolveDate).ToList();
+                solvedQuestions = db.Questions.Where(p => p.SolveDate != null).OrderByDescending(p => p.SolveDate).ToList();
             }
-            return View(allQuestions);
+            return View(solvedQuestions);
         }
 
         public ActionResult SetScoreIntervals()
@@ -105,6 +105,16 @@ namespace CarpYeni.Areas.Admin.Controllers
                 ViewBag.ResetStatus = "error";
                 return View("ResetScores");
             }
+        }
+
+        public ActionResult ShowUnsolvedQuestions()
+        {
+            List<Question> unsolvedQuestions;
+            using (var db = new CarpmaContext())
+            {
+                unsolvedQuestions = db.Questions.Where(p => p.SolveDate == null).OrderByDescending(p => p.CreateDate).ToList();
+            }
+            return View(unsolvedQuestions);
         }
     }
 }

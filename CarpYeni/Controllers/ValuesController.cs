@@ -34,7 +34,7 @@ namespace CarpYeni.Controllers
         }
 
         /// <summary>
-        /// You make a get request to this method with an integer(1:Wood, 2:Copper, 3:Silver, 4:Gold), it creates a question in the database using the id as the max value(inclusive) for the numbers and returns that question.
+        /// You make a get request to this method with an integer(1:Wood, 2:Copper, 3:Silver, 4:Gold), it creates a question in the database using the id as the max value(inclusive) for the numbers and returns that question. Parameter name is "id" because I am lazy.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -90,7 +90,7 @@ namespace CarpYeni.Controllers
 
 
         /// <summary>
-        /// Send your answered question in the body. Use question id as url parameter. It will return the updated score.
+        /// Send your answered question in the body. Use question id as url parameter. It will return the updated score. Method is POST instead of PUT because of Unity3d's WWW class limitations.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="value"></param>

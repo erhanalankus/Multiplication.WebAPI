@@ -53,7 +53,7 @@
                                 <div class="checkbox">
                                     @if (ViewBag.ValidationStatus == "success")
                                     {
-                                        <p class="alert alert-success">New values are set. You can close this window.</p> @Html.ActionLink("Back to control panel", "Index")
+                                        <p class="alert alert-success">New values are set. You can close this window. @Html.ActionLink("Back to control panel", "Index")</p> 
                                     }
                                     @if (ViewBag.ValidationStatus == "failure")
                                     {
@@ -79,6 +79,9 @@
                                 <div class="form-group">
                                     @Html.Label("Gold")
                                     @Html.TextBoxFor(p => p.Gold, new { @class = "form-control", @placeholder = "Gold", @type = "number", @required = "required" })
+                                </div>
+                                <div class="form-group">
+                                    <p>You are setting the upper limits. Lower limit is set to 2. Random numbers will be created for multiplication between 2 and the number you enter here for each type.</p>
                                 </div>
                                 <input type="submit" class="btn btn-lg btn-success btn-block" value="Set values" />
                             </fieldset>
